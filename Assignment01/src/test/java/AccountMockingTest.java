@@ -1,3 +1,4 @@
+import banking.Account;
 import banking.Bank;
 import banking.Customer;
 import org.jmock.Expectations;
@@ -7,27 +8,30 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class AccountMockingTest {
+import static org.junit.Assert.assertEquals;
 
+public class AccountMockingTest {
     @Rule
     public JUnitRuleMockery context = new JUnitRuleMockery();
 
     @Test
     public void testAccountTransfer() {
-        final Customer customer = context.mock(Customer.class);
-        final Bank bank = context.mock(Bank.class);
-        final String targetNumber = "TAR12345";
-
-        Customer.Account source = new Customer.Account(bank, customer, "SRC12345");
-        Customer.Account target = new Customer.Account(bank, customer, targetNumber);
-
-        context.checking(new Expectations() {{
+        final var customer = context.mock(Customer.class);
+        final var bank = context.mock(Bank.class);
+        final var targetNumber = "TGT54321";
+        var source = new Account(bank, customer, "SRC54321");
+        var target = new Account(bank, customer, targetNumber);
+        context.checking(new Expectations(){{
             oneOf(bank).getAccount(targetNumber);
             will(returnValue(target));
+            //oneOf(bank).getName();
         }});
 
-        source.transfer(10000, targetNumber);
-        assertEquals(10000,target.getBalance());
+        source.transfer(10000, "TGT54321");
         assertEquals(-10000, source.getBalance());
+        assertEquals(10000, target.getBalance());
+
+        //context.assertIsSatisfied();
     }
+
 }

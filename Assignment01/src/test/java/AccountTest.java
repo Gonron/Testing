@@ -1,6 +1,8 @@
+import banking.Account;
 import banking.Bank;
 import banking.Customer;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class AccountTest {
@@ -10,7 +12,7 @@ public class AccountTest {
         Customer customer = new CustomerDummy();
         String number = null;
 
-        Customer.Account account = new Customer.Account(bank, customer, number);
+        Account account = new Account(bank, customer, number);
         assertNotNull(account);
     }
 
@@ -20,7 +22,7 @@ public class AccountTest {
         Customer customer = new CustomerDummy();
         String number = null;
 
-        Customer.Account account = new Customer.Account(bank, customer, number);
+        Account account = new Account(bank, customer, number);
         assertEquals(bank, account.getBank());
         assertNotNull(account.getBank());
     }
@@ -31,7 +33,7 @@ public class AccountTest {
         Customer customer = new CustomerDummy();
         String number = null;
 
-        Customer.Account account = new Customer.Account(bank, customer, number);
+        Account account = new Account(bank, customer, number);
         assertEquals(customer, account.getCustomer());
         assertNotNull(account.getCustomer());
     }
@@ -42,7 +44,7 @@ public class AccountTest {
         Customer customer = new CustomerDummy();
         String number = "ABC12345";
 
-        Customer.Account account = new Customer.Account(bank, customer, number);
+        Account account = new Account(bank, customer, number);
         assertEquals(number, account.getNumber());
         assertNotNull(account.getNumber());
     }
@@ -53,7 +55,7 @@ public class AccountTest {
         Customer customer = new CustomerDummy();
         String number = "ABC12345";
 
-        Customer.Account account = new Customer.Account(bank, customer, number);
+        Account account = new Account(bank, customer, number);
         assertEquals(0, account.getBalance());
         assertNotNull(account.getBalance());
     }
@@ -63,11 +65,11 @@ public class AccountTest {
         Bank bank = new BankDummy();
         Customer customer = new CustomerDummy();
 
-        Customer.Account source = new Customer.Account(bank, customer, "SRC12345");
-        Customer.Account target = new Customer.Account(bank, customer, "TAR12345");
+        Account source = new Account(bank, customer, "SRC12345");
+        Account target = new Account(bank, customer, "TAR12345");
         source.transfer(10000, target);
 
-        assertEquals(10000,target.getBalance());
+        assertEquals(10000, target.getBalance());
         assertEquals(-10000, source.getBalance());
     }
 
@@ -77,12 +79,12 @@ public class AccountTest {
         Customer customer = new CustomerDummy();
         String targetNumber = "TAR12345";
 
-        Customer.Account target = new Customer.Account(bank, customer, targetNumber);
-        Customer.Account source = new Customer.Account(bank, customer, "SRC12345");
+        Account target = new Account(bank, customer, targetNumber);
+        Account source = new Account(bank, customer, "SRC12345");
         bank.setAccount(target);
 
         source.transfer(10000, targetNumber);
-        assertEquals(10000,target.getBalance());
+        assertEquals(10000, target.getBalance());
         assertEquals(-10000, source.getBalance());
     }
 }

@@ -1,17 +1,19 @@
-import banking.Account;
-import banking.Bank;
-import banking.Customer;
+package banking;
 
-public class BankDummy implements Bank {
+import java.util.HashMap;
+import java.util.Map;
+
+public class RealBank implements Bank {
+    private Map<String, Account> accounts = new HashMap<>();
 
     @Override
     public Account getAccount(String number) {
-        throw new UnsupportedOperationException();
+        return accounts.get(number);
     }
 
     @Override
     public void registerAccount(Account account) {
-
+        accounts.put(account.getNumber(), account);
     }
 
     @Override
@@ -26,6 +28,6 @@ public class BankDummy implements Bank {
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException();
+        return null;
     }
 }
