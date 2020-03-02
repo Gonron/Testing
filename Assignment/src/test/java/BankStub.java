@@ -1,8 +1,11 @@
+import banking.Bank;
+import banking.Customer;
+
 public class BankStub implements Bank {
-    private Account account;
+    private Customer.Account account;
 
     @Override
-    public Account getAccount(String number) {
+    public Customer.Account getAccount(String number) {
         return account;
     }
 
@@ -11,7 +14,7 @@ public class BankStub implements Bank {
         throw new UnsupportedOperationException();
     }
 
-    public void setAccount(Account account) {
+    public void setAccount(Customer.Account account) {
         this.account = account;
     }
 }

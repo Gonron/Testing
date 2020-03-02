@@ -1,3 +1,4 @@
+package banking;
 
 public class Account {
     private Bank bank;
@@ -15,7 +16,7 @@ public class Account {
         return bank;
     }
 
-    public Customer getCustomer(){
+    public Customer getCustomer() {
         return customer;
     }
 
@@ -35,6 +36,5 @@ public class Account {
     public void transfer(long amount, String targetNumber) {
         Account target = bank.getAccount(targetNumber);
         transfer(amount, target);
-
     }
 }

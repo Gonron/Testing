@@ -1,7 +1,10 @@
+import banking.Bank;
+import banking.Customer;
+
 public class BankDummy implements Bank {
 
     @Override
-    public Account getAccount(String number) {
+    public Customer.Account getAccount(String number) {
         throw new UnsupportedOperationException();
     }
 

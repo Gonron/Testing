@@ -1,3 +1,5 @@
+import banking.Bank;
+import banking.Customer;
 import org.jmock.Expectations;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
@@ -16,8 +18,8 @@ public class AccountMockingTest {
         final Bank bank = context.mock(Bank.class);
         final String targetNumber = "TAR12345";
 
-        Account source = new Account(bank, customer, "SRC12345");
-        Account target = new Account(bank, customer, targetNumber);
+        Customer.Account source = new Customer.Account(bank, customer, "SRC12345");
+        Customer.Account target = new Customer.Account(bank, customer, targetNumber);
 
         context.checking(new Expectations() {{
             oneOf(bank).getAccount(targetNumber);
