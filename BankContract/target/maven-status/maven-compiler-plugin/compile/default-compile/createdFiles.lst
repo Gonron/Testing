@@ -1,0 +1,15 @@
+dk\cphbusiness\contract\BankManager$BankIdentifier.class
+dk\cphbusiness\contract\AccountManager$AccountSummary.class
+dk\cphbusiness\contract\CustomerManager.class
+dk\cphbusiness\contract\MovementManager.class
+dk\cphbusiness\contract\AccountManager.class
+dk\cphbusiness\contract\BankManager.class
+dk\cphbusiness\contract\CustomerManager$CustomerDetail.class
+dk\cphbusiness\contract\MovementManager$MovementIdentifier.class
+dk\cphbusiness\contract\AccountManager$AccountIdentifier.class
+dk\cphbusiness\contract\BankManager$BankSummary.class
+dk\cphbusiness\contract\CustomerManager$CustomerSummary.class
+dk\cphbusiness\contract\AccountManager$AccountDetail.class
+dk\cphbusiness\contract\MovementManager$MovementDetail.class
+dk\cphbusiness\contract\BankManager$BankDetail.class
+dk\cphbusiness\contract\CustomerManager$CustomerIdentifier.class
